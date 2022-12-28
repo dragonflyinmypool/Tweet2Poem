@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const get_challenge_response = require("./crc.js");
+const { get_challenge_response } = require("./crc.js");
 
 // This is the Consumer Secret for your app
 const consumer_secret = "fk0aDawb9eBCY0IwBpWFBOZZeWHyPSpU1UqaHM927c5DhJbcXj";
@@ -41,3 +41,5 @@ app.put("/webhook", (req, res) => {
 // Start the server on port 3000
 const port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0");
+
+// app.listen(3000);
