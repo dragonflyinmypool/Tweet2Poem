@@ -2,6 +2,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+const consumer_secret = "fk0aDawb9eBCY0IwBpWFBOZZeWHyPSpU1UqaHM927c5DhJbcXj";
+
 // Create a new Express application
 const app = express();
 
@@ -14,7 +16,6 @@ app.post("/webhook", (request, response) => {
   const { body } = request;
 
   // Execute the webhook logic
-  // ...
   console.log("Webhook worked!");
   // Return a response
   response.json({
@@ -23,6 +24,10 @@ app.post("/webhook", (request, response) => {
   });
 });
 
+// For hosted testing
 // Start the Express application
 const port = process.env.PORT || 8080;
 app.listen(port, "0.0.0.0");
+
+// For local testing
+// app.listen(8080);
