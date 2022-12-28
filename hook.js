@@ -1,33 +1,44 @@
-// Require the Express web framework and body-parser
 const express = require("express");
-const bodyParser = require("body-parser");
-
-const consumer_secret = "fk0aDawb9eBCY0IwBpWFBOZZeWHyPSpU1UqaHM927c5DhJbcXj";
-
-// Create a new Express application
 const app = express();
 
-// Configure our Express application to parse incoming JSON
-app.use(bodyParser.json());
+const get_challenge_response = require("./crc");
 
-// Create a route for our webhook
-app.post("/webhook", (request, response) => {
-  // Retrieve the request body
-  const { body } = request;
+// This is the Consumer Secret for your app
+const consumer_secret = "fk0aDawb9eBCY0IwBpWFBOZZeWHyPSpU1UqaHM927c5DhJbcXj";
 
-  // Execute the webhook logic
-  console.log("Webhook worked!");
-  // Return a response
-  response.json({
-    success: true,
-    message: "Webhook executed successfully!",
-  });
+// GET request for challenge-response check
+app.get("/webhook", (req, res) => {
+  const crc_token = req.query.crc_token;
+
+  // Calculate the response token
+  const response_token = get_challenge_response(crc_token, consumer_secret);
+
+  // Create the response in JSON format
+  const response = {
+    response_token: `sha256=${response_token}`,
+  };
+
+  // Respond with 200 status code and the response token
+  res.status(200).json(response);
 });
 
-// For hosted testing
-// Start the Express application
-const port = process.env.PORT || 8080;
-app.listen(port, "0.0.0.0");
+// PUT request for manually triggering challenge-response check
+app.put("/webhook", (req, res) => {
+  const crc_token = req.query.crc_token;
 
-// For local testing
-// app.listen(8080);
+  // Calculate the response token
+  const response_token = get_challenge_response(crc_token, consumer_secret);
+
+  // Create the response in JSON format
+  const response = {
+    response_token: `sha256=${response_token}`,
+  };
+
+  // Respond with 200 status code and the response token
+  res.status(200).json(response);
+});
+
+// Start the server on port 3000
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
