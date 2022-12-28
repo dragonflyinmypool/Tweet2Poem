@@ -24,4 +24,5 @@ app.post("/webhook", (request, response) => {
 });
 
 // Start the Express application
-app.listen(process.env.$PORT);
+const port = process.env.PORT || 8080;
+app.listen(port, "0.0.0.0");
