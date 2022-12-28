@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const get_challenge_response = require("./crc");
+const get_challenge_response = require("./crc.js");
 
 // This is the Consumer Secret for your app
 const consumer_secret = "fk0aDawb9eBCY0IwBpWFBOZZeWHyPSpU1UqaHM927c5DhJbcXj";
