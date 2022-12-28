@@ -15,7 +15,7 @@ app.post("/webhook", (request, response) => {
 
   // Execute the webhook logic
   // ...
-
+  console.log("Webhook worked!");
   // Return a response
   response.json({
     success: true,
@@ -24,4 +24,4 @@ app.post("/webhook", (request, response) => {
 });
 
 // Start the Express application
-app.listen(3000);
+app.listen($PORT);
