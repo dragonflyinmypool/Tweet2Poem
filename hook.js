@@ -82,7 +82,7 @@ app.put("/webhook", (req, res) => {
 });
 
 // Start the server on port 3000
-// const port = process.env.PORT || 3000;
-// app.listen(port, "0.0.0.0");
+const port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0");
 
-app.listen(3000);
+// app.listen(3000);
