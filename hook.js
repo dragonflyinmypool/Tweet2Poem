@@ -18,6 +18,7 @@ app.get("/webhook", (req, res) => {
     response_token: `sha256=${response_token}`,
   };
 
+  console.log("server pinged");
   // Respond with 200 status code and the response token
   res.status(200).json(response);
 });
