@@ -57,6 +57,7 @@ app.get("/webhook", (req, res) => {
       console.log(response.body);
     })
     .catch((error) => {
+      console.log("-- Error Found --");
       throw error;
     });
   console.log("server pinged");
