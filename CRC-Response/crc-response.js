@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const { get_challenge_response } = require('../crc.js');
+const { get_challenge_response } = require('crc.js');
 
 // get from .env
 const consumer_secret = process.env.TWITTER_CONSUMER_SECRET;
