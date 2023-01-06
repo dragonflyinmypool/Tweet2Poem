@@ -1,6 +1,13 @@
 const express = require('express');
-const axios = require('axios');
-const { get_challenge_response } = require('crc.js');
+const get_challenge_response = require('./cryptoResponse');
+
+console.log('Starting server');
+console.log('Imported express');
+console.log('Imported axios');
+console.log('Imported get_challenge_response');
+
+// start app
+const app = express();
 
 // get from .env
 const consumer_secret = process.env.TWITTER_CONSUMER_SECRET;

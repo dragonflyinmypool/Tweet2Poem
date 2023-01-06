@@ -12,5 +12,9 @@ module.exports.get_challenge_response = function (crc_token, consumer_secret) {
     .update(crc_token)
     .digest('base64');
 
+  console.log('crc_token: ' + crc_token);
+  console.log('consumer_secret: ' + consumer_secret);
+  console.log('hmac: ' + hmac);
+
   return hmac;
 };
