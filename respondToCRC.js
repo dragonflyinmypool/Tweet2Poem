@@ -1,4 +1,5 @@
 const express = require('express');
+const crypto = require('crypto');
 require('dotenv').config();
 
 // Get my consumer secret from the env file
@@ -13,6 +14,7 @@ app.get('/webhook', (req, res) => {
   // Get the crc_token from twitter request
   const crc_token = req.query.crc_token;
 
+  console.log(crc_token);
   // Calculate the response token, based on the crc_token and consumer secret
   const response_token = calculate_response(crc_token, consumer_secret);
 
@@ -22,10 +24,11 @@ app.get('/webhook', (req, res) => {
   };
 
   // Respond with 200 status code and the response token
-  res.status(200).json(response);
+  res.status(200).json(reponse);
 });
 
 calculate_response = function (crc_token, consumer_secret) {
+  console.log(crc_token);
   hmac = crypto
     .createHmac('sha256', consumer_secret)
     .update(crc_token)
@@ -40,3 +43,4 @@ calculate_response = function (crc_token, consumer_secret) {
 
 app.listen(3000);
 console.log('Server is listening for requests');
+``;
