@@ -18,7 +18,7 @@ async function createWebhook() {
     const oauthNonce = Math.random().toString(36).substring(2);
     const oauthTimestamp = Math.floor(Date.now() / 1000);
     const oauthSignatureMethod = 'HMAC-SHA1';
-    const oauthVersion = '1.0';
+    const oauthVersion = '2.0';
 
     // Build the base string for the OAuth signature
     const baseString = `POST&${encodeURIComponent(
