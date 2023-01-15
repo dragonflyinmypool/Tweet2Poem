@@ -43,7 +43,7 @@ async function createWebhook() {
 
     // Make the POST request to create the webhook
     const response = await axios.post(
-      'https://api.twitter.com/1.1/account_activity/webhooks.json',
+      'https://api.twitter.com/1.1/account_activity/all/tweetPoem/webhooks.json?',
       { url: WEBHOOK_URL },
       { headers: { authorization: authHeader } }
     );
