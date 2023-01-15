@@ -54,4 +54,6 @@ async function createWebhook() {
   }
 }
 
-createWebhook();
+module.exports = {
+  createWebhook,
+};

@@ -2,6 +2,9 @@ const express = require('express');
 const crypto = require('crypto');
 require('dotenv').config();
 
+const { createWebhook } = require('./registerWebhook.js');
+createWebhook();
+
 // Get my consumer secret from the env file
 const consumer_secret = process.env.TWITTER_CONSUMER_SECRET;
 
