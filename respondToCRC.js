@@ -42,6 +42,5 @@ calculate_response = function (crc_token, consumer_secret) {
 };
 
 // If you are starting a server, you need to use the PORT environment variable. This is how Railway can expose your deployment. If you see a "Bad Gateway" error, you most likely are not listening on PORT.
-// process.env.PORT ||
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log('Server is listening for requests on port: ' + process.env.PORT);
