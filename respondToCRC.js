@@ -2,9 +2,6 @@ const express = require('express');
 const crypto = require('crypto');
 require('dotenv').config();
 
-const { createWebhook } = require('./registerWebhook.js');
-createWebhook();
-
 // Get my consumer secret from the env file
 const consumer_secret = process.env.TWITTER_CONSUMER_SECRET;
 
@@ -45,6 +42,6 @@ calculate_response = function (crc_token, consumer_secret) {
 };
 
 // If you are starting a server, you need to use the PORT environment variable. This is how Railway can expose your deployment. If you see a "Bad Gateway" error, you most likely are not listening on PORT.
-
-app.listen(process.env.PORT || 3000);
+// process.env.PORT ||
+app.listen(3000);
 console.log('Server is listening for requests on port: ' + process.env.PORT);
